@@ -1,15 +1,26 @@
-SuBSENSE + LOBSTER
+Build and Test
 ===================
+First, run the following steps to build the libSubsense library:
+  ```Shell
+  git clone https://gitlab.com/bing2022/subsense
+  cd subsense
+  mkdir -p build && cd build && cmake .. && make
+  cd .. && cp libSubsense* Python
+  cp Python
+  python motion_detection_demo.py --help
+  ```
 
-A modified version of the SuBSENSE[1] and LOBSTER[2] library. Current changes include:
+If above steps succeed, in the same Python directory, try the following:
+  ```Shell
+  python advanced_http.py &
+  python advanced_hub.py &
+  python motion_detection_demo.py -i /path/to/video.mp4_OR_rtsp_stream_uri
+  ```
 
-- Python interface.
-- Fixes for OpenCV 3 compatibility.
 
-See files under ``Subsense`` for more details.
+References
+===================
+[1] https://github.com/ethereon/subsense
 
-All additions/modifications released under the MIT license.
+[2] https://github.com/jeffbass/imagezmq/tree/master/examples
 
-[1] St-Charles, Pierre-Luc, Guillaume-Alexandre Bilodeau, and R. Bergevin. "SuBSENSE: A Universal Change Detection Method with Local Adaptive Sensitivity." CVPRW 2014.
-
-[2] St-Charles, Pierre-Luc, and Guillaume-Alexandre Bilodeau. "Improving Background Subtraction using Local Binary Similarity Patterns." Applications of Computer Vision (WACV), 2014.
